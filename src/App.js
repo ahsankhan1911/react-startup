@@ -1,6 +1,10 @@
 import React from 'react';
+import Projects from './Components/Projects'
   // React Component ↓
 class App extends React.Component {
+
+
+
   // constructor () {
   //   super();
   //   this.state = {
@@ -12,23 +16,23 @@ class App extends React.Component {
   // update(e) {
   //   this.setState({txt: e.target.value})
   // }
-  
+
   // render() {
 
   //   let txt = this.props.txt;
-  //   return ( 
+  //   return (
   //   <div>
 
-  //            <h1>{this.state.txt}</h1>  
+  //            <h1>{this.state.txt}</h1>
   //         <Widget update= {this.update.bind(this)}/>
   //         <Widget update= {this.update.bind(this)}/>
   //         <Widget update= {this.update.bind(this)}/>
 
-      
+
 
   //   </div>
   //   )
-  // } 
+  // }
 
 //  render() {
 //       return <Button>I <Heart/> <Euro/> React</Button>
@@ -58,7 +62,7 @@ class App extends React.Component {
 
 
 // const Widget = (props) =>
-       
+
 //          <input type="text" onChange={props.update}/>
 
 
@@ -76,7 +80,7 @@ class App extends React.Component {
 
 
 
-// Synthetic Events System ↓ 
+// Synthetic Events System ↓
 // constructor() {
 //   super();
 //   this.state = {currentEvent: '___'}
@@ -89,10 +93,10 @@ class App extends React.Component {
 //  render() {
 //    return (
 //         <div>
-//           <textarea 
+//           <textarea
 //           onKeyPress={this.update}
 //           onCopy={this.update}
-//           cols="30" 
+//           cols="30"
 //           rows="10"
 //           />
 //           <h1>{this.state.currentEvent}</h1>
@@ -130,24 +134,32 @@ class App extends React.Component {
 
 constructor() {
   super();
-  this.state = {a: ''}
+  this.state = {
+    projects: [
+      {
+        title: 'Bussiness Website',
+        category: 'Web Design'
+      },
+      {
+        title: 'Social App',
+        category: 'Mobile Development'
+      },
+      {
+        title: 'Ecommerce Shooping cart',
+        category: 'Web Development'
+      }
+    ]
+  }
 }
 
-update(){
-  this.setState({a: this.refs.a.value}, {b: this.refs.b.value})
-}
 render() {
    return (
-        <div>
-         <input ref="a" type="text" onChange={this.update.bind(this)} />
-         {this.state.a}
-         <hr/>
-         <input ref="b" type="text" onChange={this.update.bind(this)} />
-         {this.state.b}
-         
+        <div className="App">
+        My App
+        <Projects projects={this.state.projects}/>
         </div>
 
-   )
+   );
  }
 }
 
@@ -156,4 +168,4 @@ render() {
 
 
 
-export default App
+export default App;
